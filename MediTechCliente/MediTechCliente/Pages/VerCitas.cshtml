@@ -1,0 +1,58 @@
+﻿@page
+@model MediTechCliente.Pages.VerCitasModel
+@{
+    ViewData["Title"] = "Ver Citas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Paciente ID</th>
+            <th>Servicio ID</th>
+            <th>Doctor ID</th>
+            <th>Nota</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cita in Model.citas)
+        {
+            <tr>
+                <td>@cita.PacienteId</td>
+                <td>@cita.ServicioId</td>
+                <td>@cita.DoctorId</td>
+                <td>
+                    <input type="text" class="form-control" value="@cita.Nota" />
+                </td>
+                <td>
+                    <button class="completarBtn btn btn-primary" data-citaID="@cita.Id">Guardar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>document.querySelectorAll('.completarBtn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            var citaId = this.getAttribute('data-citaID');
+            var completarUrl = `https://localhost:7201/api/RegistrarCita/${citaId}`;
+
+            fetch(completarUrl, {
+                method: 'PUT' 
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Nota actualizada');
+                        window.location.href = '/Index';
+                    } else {
+                        console.error('Error al actualizar la nota');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    });</script>
+

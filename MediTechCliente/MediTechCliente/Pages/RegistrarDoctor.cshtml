@@ -1,0 +1,53 @@
+﻿@page
+@model MediTechCliente.Pages.CrearDoctorModel
+@{
+    ViewData["Title"] = "Registrar Doctor";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="doc.Nombre"></label>
+        <input asp-for="doc.Nombre" class="form-control" />
+        <span asp-validation-for="doc.Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="doc.Apellido"></label>
+        <input asp-for="doc.Apellido" class="form-control" />
+        <span asp-validation-for="doc.Apellido" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="doc.Email"></label>
+        <input asp-for="doc.Email" class="form-control" />
+        <span asp-validation-for="doc.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="doc.Telefono"></label>
+        <input asp-for="doc.Telefono" class="form-control" />
+        <span asp-validation-for="doc.Telefono" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="doc.Direccion"></label>
+        <input asp-for="doc.Direccion" class="form-control" />
+        <span asp-validation-for="doc.Direccion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="doc.Especialidad"></label>
+        <input asp-for="doc.Especialidad" class="form-control" />
+        <span asp-validation-for="doc.Especialidad" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="doc.AniosExperiencia"></label>
+        <input asp-for="doc.AniosExperiencia" class="form-control" />
+        <span asp-validation-for="doc.AniosExperiencia" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Doctor</button>
+</form>

@@ -1,0 +1,35 @@
+﻿@page
+@model MediTechCliente.Pages.CrearCitaModel
+@{
+    ViewData["Title"] = "Registrar Cita";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="cita.PacienteId">ID de Paciente</label>
+        <input asp-for="cita.PacienteId" class="form-control" />
+        <span asp-validation-for="cita.PacienteId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="cita.ServicioId">ID de Servicio</label>
+        <input asp-for="cita.ServicioId" class="form-control" />
+        <span asp-validation-for="cita.ServicioId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="cita.DoctorId">ID de Doctor</label>
+        <input asp-for="cita.DoctorId" class="form-control" />
+        <span asp-validation-for="cita.DoctorId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="cita.Nota">Nota</label>
+        <input asp-for="cita.Nota" class="form-control" />
+        <span asp-validation-for="cita.Nota" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cita</button>
+</form>
